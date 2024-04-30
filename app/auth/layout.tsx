@@ -9,10 +9,12 @@ const AuthLayout = ({ children }: Props) => {
     return (
         <div className="w-full min-h-screen grid grid-cols-12 bg-neutral-100">
             {/* form section  */}
-            <div className="col-span-5">{children}</div>
+            <div className="xl:col-span-5 lg:col-span-5 col-span-12">
+                {children}
+            </div>
 
             {/* Carousel section  */}
-            <div className="w-full min-h-screen col-span-7 p-5">
+            <div className="w-full min-h-screen col-span-7 p-5 xl:block lg:block hidden">
                 <Carousel autoplay>
                     <div className="bg-green-500 h-[calc(100vh-40px)] rounded-md">
                         <h3>1</h3>
