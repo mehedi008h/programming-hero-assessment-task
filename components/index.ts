@@ -8,6 +8,8 @@ export { default as AuthWrapper } from "./auth/AuthWrapper";
 
 // project
 export { default as Project } from "./project/Project";
+export { default as ProjectDetailsCard } from "./project/ProjectDetailsCard";
+export { default as ProjectTasks } from "./project/ProjectTasks";
 
 // task
 export { default as Task } from "./tasks/Task";
