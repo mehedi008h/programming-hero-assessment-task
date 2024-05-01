@@ -10,3 +10,5 @@ export { default as AuthWrapper } from "./auth/AuthWrapper";
 export { default as Project } from "./project/Project";
 
 // task
+export { default as Task } from "./tasks/Task";
+export { default as TaskFilterBar } from "./tasks/FilterBar";
