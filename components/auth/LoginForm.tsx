@@ -13,7 +13,9 @@ import {
     FormProps,
     Input,
 } from "antd";
+import { useRouter } from "next/navigation";
 import React from "react";
+import toast from "react-hot-toast";
 
 type FieldType = {
     email?: string;
@@ -21,15 +23,21 @@ type FieldType = {
     remember?: string;
 };
 
-const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
-    console.log("Success:", values);
-};
-
-const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-};
-
 const LoginForm = () => {
+    const router = useRouter();
+    // login success
+    const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
+        console.log("Success:", values);
+        router.push("/dashboard");
+        toast.success("Successfully Sign in");
+    };
+
+    // login failed
+    const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
+        errorInfo
+    ) => {
+        console.log("Failed:", errorInfo);
+    };
     return (
         <div className="xl:w-[400px] lg:w-[400px] w-[300px]">
             {/* heading  */}
@@ -45,8 +53,8 @@ const LoginForm = () => {
                 name="basic"
                 style={{ maxWidth: 600 }}
                 initialValues={{ remember: true }}
-                // onFinish={onFinish}
-                // onFinishFailed={onFinishFailed}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
                 autoComplete="off"
                 className="mt-5"
             >
