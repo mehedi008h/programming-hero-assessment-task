@@ -11,4 +11,5 @@ export { default as Project } from "./project/Project";
 
 // task
 export { default as Task } from "./tasks/Task";
+export { default as Tasks } from "./tasks/Tasks";
 export { default as TaskFilterBar } from "./tasks/FilterBar";
