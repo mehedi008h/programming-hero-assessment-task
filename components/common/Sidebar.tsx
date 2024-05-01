@@ -1,14 +1,13 @@
-import {
-    CalendarOutlined,
-    FundProjectionScreenOutlined,
-    HomeOutlined,
-    ProjectOutlined,
-    UnorderedListOutlined,
-    UsergroupAddOutlined,
-} from "@ant-design/icons";
-import React from "react";
+"use client";
+
+import { sidebarLinks } from "@/static/sidebar";
+import { ProjectOutlined, UsergroupAddOutlined } from "@ant-design/icons";
+import Link from "next/link";
+import React, { useState } from "react";
 
 const Sidebar = () => {
+    // state for active sidebar link
+    const [active, setActive] = useState<string>("Home");
     return (
         <aside className="w-full h-screen overflow-auto bg-white py-6 flex flex-col justify-between">
             <div>
@@ -19,54 +18,30 @@ const Sidebar = () => {
 
                 {/* links  */}
                 <div className="mt-10 ps-6">
-                    <p className="uppercase font-medium mb-2">Main</p>
                     <ul className="space-y-2">
-                        <li className="flex items-center gap-3 hover:bg-neutral-50 ps-4 py-2 rounded-s-2xl cursor-pointer text-neutral-600 hover:text-indigo-500 border-r-2 border-white hover:border-indigo-500">
-                            <HomeOutlined className="text-lg" />
-                            <p className="text-base font-normal">Home</p>
-                        </li>
-                        <li className="flex items-center gap-3 hover:bg-neutral-50 ps-4 py-2 rounded-s-2xl cursor-pointer">
-                            <FundProjectionScreenOutlined className="text-lg text-neutral-600" />
-                            <p className="text-neutral-600 text-base font-normal">
-                                Projects
-                            </p>
-                        </li>
-                        <li className="flex items-center gap-3 hover:bg-neutral-50 ps-4 py-2 rounded-s-2xl cursor-pointer">
-                            <UnorderedListOutlined className="text-lg text-neutral-600" />
-                            <p className="text-neutral-600 text-base font-normal">
-                                My Task
-                            </p>
-                        </li>
-                        <li className="flex items-center gap-3 hover:bg-neutral-50 ps-4 py-2 rounded-s-2xl cursor-pointer">
-                            <CalendarOutlined className="text-lg text-neutral-600" />
-                            <p className="text-neutral-600 text-base font-normal">
-                                Calendar
-                            </p>
-                        </li>
-                        <li className="flex items-center gap-3 hover:bg-neutral-50 ps-4 py-2 rounded-s-2xl cursor-pointer">
-                            <CalendarOutlined className="text-lg text-neutral-600" />
-                            <p className="text-neutral-600 text-base font-normal">
-                                Time Manage
-                            </p>
-                        </li>
-                        <li className="flex items-center gap-3 hover:bg-neutral-50 ps-4 py-2 rounded-s-2xl cursor-pointer">
-                            <CalendarOutlined className="text-lg text-neutral-600" />
-                            <p className="text-neutral-600 text-base font-normal">
-                                Reports
-                            </p>
-                        </li>
-                        <li className="flex items-center gap-3 hover:bg-neutral-50 ps-4 py-2 rounded-s-2xl cursor-pointer">
-                            <CalendarOutlined className="text-lg text-neutral-600" />
-                            <p className="text-neutral-600 text-base font-normal">
-                                Settings
-                            </p>
-                        </li>
+                        {sidebarLinks.map((item) => (
+                            <Link
+                                href={item.link}
+                                key={item.id}
+                                onClick={() => setActive(item.name)}
+                                className={`flex items-center gap-3 hover:bg-neutral-50 ps-4 py-2 rounded-s-2xl cursor-pointer  hover:text-indigo-500 border-r-2  hover:border-indigo-500 ${
+                                    active === item.name
+                                        ? "border-indigo-500 text-indigo-500 bg-neutral-50"
+                                        : "border-white text-neutral-600"
+                                }`}
+                            >
+                                {item.icon}
+                                <p className="text-base font-normal">
+                                    {item.name}
+                                </p>
+                            </Link>
+                        ))}
                     </ul>
                 </div>
             </div>
 
             {/* footer  */}
-            <div className="mx-6 border-2 flex items-center gap-3 justify-center py-3 rounded-md cursor-pointer">
+            <div className="mx-6 bg-gradient-to-r from-cyan-500 to-blue-500 text-white flex items-center gap-3 justify-center py-3 rounded-md cursor-pointer">
                 <UsergroupAddOutlined className="text-xl" />
                 <p>Invite Teammate</p>
             </div>
