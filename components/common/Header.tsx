@@ -50,7 +50,7 @@ const items: MenuProps["items"] = [
 
 const Header = () => {
     return (
-        <div className="h-16 flex justify-between items-center bg-white rounded-md px-4">
+        <div className="h-16 flex justify-between items-center bg-white rounded-md px-4 mb-4">
             {/* left section  */}
             <div className="flex items-center gap-2 border rounded-full py-2 px-3">
                 <SearchOutlined className="text-neutral-400 text-xl" />
@@ -74,7 +74,7 @@ const Header = () => {
 
                 {/* user menu  */}
                 <Dropdown menu={{ items }} placement="bottomRight" arrow>
-                    <Avatar icon size={"large"} />
+                    <Avatar icon={<UserOutlined />} size={"large"} />
                 </Dropdown>
             </div>
         </div>
