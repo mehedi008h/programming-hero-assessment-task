@@ -1,16 +1,19 @@
+import { Project as IProject } from "@/domain/project";
 import {
-    AntDesignOutlined,
     CodepenCircleOutlined,
     DeleteColumnOutlined,
     EditOutlined,
     EyeOutlined,
     MoreOutlined,
     StarFilled,
-    UserOutlined,
 } from "@ant-design/icons";
-import { Avatar, Dropdown, MenuProps, Progress, Tag, Tooltip } from "antd";
+import { Avatar, Dropdown, MenuProps, Progress, Tag } from "antd";
 import Link from "next/link";
 import React from "react";
+
+interface Props {
+    project: IProject;
+}
 
 const items: MenuProps["items"] = [
     {
@@ -39,7 +42,7 @@ const items: MenuProps["items"] = [
     },
 ];
 
-const Project = () => {
+const Project = ({ project }: Props) => {
     return (
         <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 bg-white p-3 rounded-md hover:shadow-sm transition-all">
             {/* heading section  */}
@@ -52,7 +55,7 @@ const Project = () => {
                         size={"large"}
                     />
                     <div>
-                        <h5>Project Management</h5>
+                        <h5>{project.title.substring(0, 20)}</h5>
                         <p className="text-neutral-400 text-sm font-normal">
                             Programming Hero
                         </p>
@@ -74,8 +77,17 @@ const Project = () => {
                         Selected Progress
                     </Tag>
                 </Dropdown>
-                <Tag color="red" className="text-sm px-2 py-[3px]">
-                    High
+                <Tag
+                    color={
+                        project.priority === "High"
+                            ? "red"
+                            : project.priority === "Medium"
+                            ? "blue"
+                            : "green"
+                    }
+                    className="text-sm px-2 py-[3px]"
+                >
+                    {project.priority}
                 </Tag>
             </div>
 
@@ -85,8 +97,9 @@ const Project = () => {
 
             {/* project tags  */}
             <div className="flex flex-row flex-wrap gap-2 my-4">
-                <Tag>Ios</Tag>
-                <Tag>React Native</Tag>
+                {project.tags.map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
+                ))}
             </div>
 
             {/* project member  */}
@@ -114,7 +127,7 @@ const Project = () => {
 
             {/* due date  */}
             <Tag color="red" className="mt-4">
-                Due Date: 13-12-2024
+                Due Date: {project.dueDate}
             </Tag>
         </div>
     );

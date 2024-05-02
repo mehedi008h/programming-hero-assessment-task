@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "title": "Multivendore E-commerce App",
+        "description": "string",
+        "assignDate": "12-12-2023",
+        "dueDate": "02-05-2024",
+        "photo": "",
+        "projectLeader": "",
+        "tags": ["React.js", "Node.js", "Next.js"],
+        "developers": [],
+        "tasks": "",
+        "priority": "High"
+    },
+    {
+        "id": 2,
+        "title": "Project Management App",
+        "description": "string",
+        "assignDate": "12-12-2023",
+        "dueDate": "02-05-2024",
+        "photo": "",
+        "projectLeader": "",
+        "tags": ["React.js", "Node.js", "Next.js"],
+        "developers": [],
+        "tasks": "",
+        "priority": "Medium"
+    }
+]
