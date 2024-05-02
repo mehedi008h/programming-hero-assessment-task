@@ -2,6 +2,7 @@
 export { default as Header } from "./common/Header";
 export { default as Sidebar } from "./common/Sidebar";
 export { default as MobDrawer } from "./common/MobDrawer";
+export { default as Loader } from "./common/Loader";
 
 // auth
 export { default as LoginForm } from "./auth/LoginForm";

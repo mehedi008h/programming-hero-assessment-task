@@ -8,10 +8,10 @@ const fetchData = async (): Promise<Project[]> => {
     return project; // Return the imported JSON data
 };
 
-const useProject = () =>
+const useProjects = () =>
     useQuery({
         queryKey: ["projects"],
         queryFn: () => fetchData(),
     });
 
-export default useProject;
+export default useProjects;

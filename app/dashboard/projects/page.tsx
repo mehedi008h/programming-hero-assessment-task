@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
 import { Project } from "@/components";
-import useProject from "@/hooks/useProjects";
+import useProjects from "@/hooks/useProjects";
 
 const ProjectPage = () => {
-    const { data, isLoading, isError } = useProject();
+    // fetch project data
+    const { data, isLoading, isError } = useProjects();
     return (
         <div className="grid grid-cols-12 gap-5">
             {isLoading ? (

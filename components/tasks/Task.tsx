@@ -20,8 +20,13 @@ import {
 import { Avatar, Button, Dropdown, MenuProps, Modal, Tag } from "antd";
 import React, { useState } from "react";
 import TaskDetailsModal from "../modal/TaskDetailsModal";
+import { Task as ITask } from "@/domain/task";
 
-const Task = () => {
+interface Props {
+    task: ITask;
+}
+
+const Task = ({ task }: Props) => {
     // state for time tracking
     const [onTimeCount, setOnTimeCount] = useState<boolean>(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -68,7 +73,7 @@ const Task = () => {
             <div className="flex justify-between">
                 {/* title  */}
                 <div className="flex items-center gap-2">
-                    <h5>Project Management</h5>
+                    <h5>{task.title}t</h5>
                 </div>
 
                 {/* menu  */}
@@ -97,14 +102,15 @@ const Task = () => {
                 </Tag>
 
                 <Tag color="red" className="text-sm px-2 py-[3px]">
-                    <AlertOutlined /> 15-12-2024
+                    <AlertOutlined /> {task.dueDate}
                 </Tag>
             </div>
 
             {/* task tags  */}
             <div className="flex flex-row flex-wrap gap-2 my-4">
-                <Tag>Ios</Tag>
-                <Tag>React Native</Tag>
+                {task.tags.map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
+                ))}
             </div>
 
             {/* assgned  */}

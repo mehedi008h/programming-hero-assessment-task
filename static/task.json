@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "title": "Multivendore E-commerce App",
+        "description": "string",
+        "assignDate": "12-12-2023",
+        "dueDate": "02-05-2024",
+        "status": "Todo",
+        "projectIdentifier": "",
+        "tags": ["React.js", "Node.js", "Next.js"],
+        "developer": "",
+        "assigned": "",
+        "priority": "High"
+    },
+    {
+        "id": 2,
+        "title": "Project Management App",
+        "description": "string",
+        "assignDate": "12-12-2023",
+        "dueDate": "02-05-2024",
+        "status": "Progress",
+        "projectIdentifier": "",
+        "tags": ["React.js", "Node.js", "Next.js"],
+        "developer": "",
+        "assigned": "",
+        "priority": "Medium"
+    },
+    {
+        "id": 3,
+        "title": "Responsive App",
+        "description": "string",
+        "assignDate": "12-12-2023",
+        "dueDate": "02-05-2024",
+        "status": "Completed",
+        "projectIdentifier": "",
+        "tags": ["React.js", "Node.js", "Next.js"],
+        "developer": "",
+        "assigned": "",
+        "priority": "Medium"
+    },
+    {
+        "id": 4,
+        "title": "Build Api",
+        "description": "string",
+        "assignDate": "12-12-2023",
+        "dueDate": "02-05-2024",
+        "status": "Progress",
+        "projectIdentifier": "",
+        "tags": ["React.js", "Node.js", "Next.js"],
+        "developer": "",
+        "assigned": "",
+        "priority": "Medium"
+    }
+]
