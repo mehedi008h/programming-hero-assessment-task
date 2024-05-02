@@ -41,7 +41,7 @@ const items: MenuProps["items"] = [
 
 const Project = () => {
     return (
-        <div className="col-span-3 bg-white p-3 rounded-md hover:shadow-sm transition-all">
+        <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 bg-white p-3 rounded-md hover:shadow-sm transition-all">
             {/* heading section  */}
             <div className="flex justify-between">
                 {/* icon & title  */}

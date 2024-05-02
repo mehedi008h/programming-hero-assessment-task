@@ -57,9 +57,9 @@ const ProjectDetailsCard = () => {
         },
     ];
     return (
-        <div className="bg-white p-4 rounded-md flex items-start gap-5">
+        <div className="bg-white p-4 rounded-md flex xl:flex-row lg:flex-row flex-col items-start gap-5">
             {/* image  */}
-            <div className="h-64 w-64 bg-gray-400 rounded-md"></div>
+            <div className="h-64 xl:w-64 lg:w-64 w-full bg-gray-400 rounded-md"></div>
 
             <div>
                 {/* title  */}
@@ -95,7 +95,7 @@ const ProjectDetailsCard = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-start items-center my-4">
+                <div className="flex flex-wrap justify-start items-center gap-3 my-4">
                     <Tag color="gray" className="text-sm px-2 py-[3px]">
                         <FieldTimeOutlined /> Assign Date : 01-12-2024
                     </Tag>

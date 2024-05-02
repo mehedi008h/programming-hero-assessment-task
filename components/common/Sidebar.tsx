@@ -5,7 +5,11 @@ import { ProjectOutlined, UsergroupAddOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const Sidebar = () => {
+interface Props {
+    onClose?: () => void;
+}
+
+const Sidebar = ({ onClose }: Props) => {
     // state for active sidebar link
     const [active, setActive] = useState<string>("Home");
     return (
@@ -23,7 +27,9 @@ const Sidebar = () => {
                             <Link
                                 href={item.link}
                                 key={item.id}
-                                onClick={() => setActive(item.name)}
+                                onClick={() => {
+                                    setActive(item.name), onClose && onClose();
+                                }}
                                 className={`flex items-center gap-3 hover:bg-neutral-50 ps-4 py-2 rounded-s-2xl cursor-pointer  hover:text-indigo-500 border-r-2  hover:border-indigo-500 ${
                                     active === item.name
                                         ? "border-indigo-500 text-indigo-500 bg-neutral-50"
