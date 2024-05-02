@@ -1,3 +1,5 @@
+"use client";
+
 import {
     AlertOutlined,
     DeleteColumnOutlined,
@@ -11,60 +13,49 @@ import {
     UserAddOutlined,
 } from "@ant-design/icons";
 import { Avatar, Dropdown, MenuProps, Tag } from "antd";
-import React from "react";
-
-const items: MenuProps["items"] = [
-    {
-        key: "1",
-        label: (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.antgroup.com"
-            >
-                <UserAddOutlined /> Assign Developer
-            </a>
-        ),
-    },
-    {
-        key: "2",
-        label: (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.aliyun.com"
-            >
-                <EditOutlined /> Add Task
-            </a>
-        ),
-    },
-    {
-        key: "3",
-        label: (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.luohanacademy.com"
-            >
-                <EditOutlined /> Update Project
-            </a>
-        ),
-    },
-    {
-        key: "4",
-        label: (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.luohanacademy.com"
-            >
-                <DeleteColumnOutlined /> Delete Project
-            </a>
-        ),
-    },
-];
+import React, { useState } from "react";
+import { AddTaskModal, AssignDeveloperModal } from "@/components";
 
 const ProjectDetailsCard = () => {
+    const [openAssignDeveloperModal, setOpenAssignDeveloperModal] =
+        useState<boolean>(false);
+    const [openAddTaskModal, setOpenAddTaskModal] = useState<boolean>(false);
+
+    // dropdown menu items
+    const items: MenuProps["items"] = [
+        {
+            key: "1",
+            label: (
+                <p onClick={() => setOpenAssignDeveloperModal(true)}>
+                    <UserAddOutlined /> Assign Developer
+                </p>
+            ),
+        },
+        {
+            key: "2",
+            label: (
+                <p onClick={() => setOpenAddTaskModal(true)}>
+                    <EditOutlined /> Add Task
+                </p>
+            ),
+        },
+        {
+            key: "3",
+            label: (
+                <p>
+                    <EditOutlined /> Update Project
+                </p>
+            ),
+        },
+        {
+            key: "4",
+            label: (
+                <p>
+                    <DeleteColumnOutlined /> Delete Project
+                </p>
+            ),
+        },
+    ];
     return (
         <div className="bg-white p-4 rounded-md flex items-start gap-5">
             {/* image  */}
@@ -142,6 +133,17 @@ const ProjectDetailsCard = () => {
                     </div>
                 </div>
             </div>
+
+            {/* modal  */}
+            <AssignDeveloperModal
+                open={openAssignDeveloperModal}
+                setOpen={setOpenAssignDeveloperModal}
+            />
+
+            <AddTaskModal
+                open={openAddTaskModal}
+                setOpen={setOpenAddTaskModal}
+            />
         </div>
     );
 };

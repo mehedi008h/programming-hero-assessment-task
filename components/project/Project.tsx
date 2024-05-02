@@ -9,43 +9,32 @@ import {
     UserOutlined,
 } from "@ant-design/icons";
 import { Avatar, Dropdown, MenuProps, Progress, Tag, Tooltip } from "antd";
+import Link from "next/link";
 import React from "react";
 
 const items: MenuProps["items"] = [
     {
         key: "1",
         label: (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.antgroup.com"
-            >
+            <Link href="/dashboard/projects/1">
                 <EyeOutlined /> View
-            </a>
+            </Link>
         ),
     },
     {
         key: "2",
         label: (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.aliyun.com"
-            >
+            <p>
                 <EditOutlined /> Edit
-            </a>
+            </p>
         ),
     },
     {
         key: "3",
         label: (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.luohanacademy.com"
-            >
+            <p>
                 <DeleteColumnOutlined /> Delete
-            </a>
+            </p>
         ),
     },
 ];

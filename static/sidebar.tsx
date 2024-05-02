@@ -9,6 +9,7 @@ import {
     UnorderedListOutlined,
 } from "@ant-design/icons";
 
+// sidebar links
 export const sidebarLinks = [
     {
         id: 1,

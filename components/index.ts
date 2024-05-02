@@ -15,3 +15,9 @@ export { default as ProjectTasks } from "./project/ProjectTasks";
 export { default as Task } from "./tasks/Task";
 export { default as Tasks } from "./tasks/Tasks";
 export { default as TaskFilterBar } from "./tasks/FilterBar";
+
+// modal
+export { default as SearchModal } from "./modal/SearchModal";
+export { default as TaskDetailsModal } from "./modal/TaskDetailsModal";
+export { default as AssignDeveloperModal } from "./modal/AssignDeveloperModal";
+export { default as AddTaskModal } from "./modal/AddTaskModal";

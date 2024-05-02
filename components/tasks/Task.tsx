@@ -19,6 +19,7 @@ import {
 } from "@ant-design/icons";
 import { Avatar, Button, Dropdown, MenuProps, Modal, Tag } from "antd";
 import React, { useState } from "react";
+import TaskDetailsModal from "../modal/TaskDetailsModal";
 
 const Task = () => {
     // state for time tracking
@@ -27,14 +28,6 @@ const Task = () => {
 
     const showModal = () => {
         setIsModalOpen(true);
-    };
-
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-
-    const handleCancel = () => {
-        setIsModalOpen(false);
     };
 
     // handle time tracking
@@ -130,74 +123,8 @@ const Task = () => {
                 </div>
             </div>
 
-            <Modal
-                title="Task Details"
-                open={isModalOpen}
-                onOk={handleOk}
-                onCancel={handleCancel}
-                footer={[
-                    <Button key="submit" type="primary" onClick={handleOk}>
-                        Mark As Complete
-                    </Button>,
-                ]}
-            >
-                <div className="flex items-center gap-1">
-                    <NotificationOutlined className="text-indigo-500" />{" "}
-                    <h5 className="text-base font-normal">Task Title</h5>
-                </div>
-                <p className="text-sm text-neutral-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Inventore quod exercitationem hic quidem blanditiis sed!
-                </p>
-
-                <div className="flex justify-between items-center my-4">
-                    <Tag color="gray" className="text-sm px-2 py-[3px]">
-                        <FieldTimeOutlined /> Assign Date : 01-12-2024
-                    </Tag>
-
-                    <Tag color="red" className="text-sm px-2 py-[3px]">
-                        <AlertOutlined /> Due Date : 15-12-2024
-                    </Tag>
-                </div>
-
-                {/* task tags  */}
-                <div className="flex flex-row flex-wrap gap-2 my-4">
-                    <Tag>Ios</Tag>
-                    <Tag>React Native</Tag>
-                </div>
-
-                <div className="flex justify-between items-center">
-                    <div className="flex items-center">
-                        <Tag color="gray" className="text-sm px-2 py-[3px]">
-                            <FieldTimeOutlined /> Total Work Hour : 04:20
-                        </Tag>
-                        {/* time tracking button  */}
-                        {onTimeCount ? (
-                            <PauseCircleOutlined
-                                onClick={handleTimeTracking}
-                                className="text-green-700 text-xl cursor-pointer"
-                            />
-                        ) : (
-                            <PlayCircleOutlined
-                                onClick={handleTimeTracking}
-                                className="text-gray-600 text-xl cursor-pointer"
-                            />
-                        )}
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                        <div className="flex gap-1 items-center text-neutral-600 cursor-pointer">
-                            5<PaperClipOutlined />
-                        </div>
-                        <div className="flex gap-1 items-center text-neutral-600 cursor-pointer">
-                            3<MessageOutlined />
-                        </div>
-                        <div className="flex gap-1 items-center text-neutral-600 cursor-pointer">
-                            2<NodeIndexOutlined />
-                        </div>
-                    </div>
-                </div>
-            </Modal>
+            {/* task view modal  */}
+            <TaskDetailsModal open={isModalOpen} setOpen={setIsModalOpen} />
         </div>
     );
 };

@@ -1,3 +1,5 @@
+"use client";
+
 import {
     CommentOutlined,
     LogoutOutlined,
@@ -7,52 +9,45 @@ import {
     UserOutlined,
 } from "@ant-design/icons";
 import { Avatar, Badge, Dropdown, MenuProps } from "antd";
-import React from "react";
+import React, { useState } from "react";
+import SearchModal from "../modal/SearchModal";
 
 const items: MenuProps["items"] = [
     {
         key: "1",
         label: (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.antgroup.com"
-            >
+            <p>
                 <UserOutlined /> Profile
-            </a>
+            </p>
         ),
     },
     {
         key: "2",
         label: (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.aliyun.com"
-            >
+            <p>
                 <SettingOutlined /> Settings
-            </a>
+            </p>
         ),
     },
     {
         key: "3",
         label: (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.luohanacademy.com"
-            >
+            <p>
                 <LogoutOutlined /> Logout
-            </a>
+            </p>
         ),
     },
 ];
 
 const Header = () => {
+    const [openSearchModal, setOpenSearchModal] = useState<boolean>(false);
     return (
         <div className="h-16 flex justify-between items-center bg-white rounded-md px-4 mb-4">
             {/* left section  */}
-            <div className="flex items-center gap-2 border rounded-full py-2 px-3">
+            <div
+                onClick={() => setOpenSearchModal(true)}
+                className="flex items-center gap-2 border rounded-full py-2 px-3"
+            >
                 <SearchOutlined className="text-neutral-400 text-xl" />
                 <input
                     type="text"
@@ -77,6 +72,9 @@ const Header = () => {
                     <Avatar icon={<UserOutlined />} size={"large"} />
                 </Dropdown>
             </div>
+
+            {/* search modal  */}
+            <SearchModal open={openSearchModal} setOpen={setOpenSearchModal} />
         </div>
     );
 };
